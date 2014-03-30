@@ -1,0 +1,16 @@
+﻿{% extends "base.html" %}
+
+{% block content %}
+
+My name is {{ myname }}
+
+<h1>My Todo List</h1>
+
+<ol>
+{% for item in todolist %}
+	{{ item.description }}
+{% endfor %}
+</ol>
+
+<input id = "additem" type = "text">
+{% endblock %}

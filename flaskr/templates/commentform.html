@@ -1,0 +1,54 @@
+﻿{% extends "layout.html" %}
+{% block body %}
+<link type="text/css" rel="stylesheet" href="jquery.dropdown.css" />
+<script type="text/javascript" src="jquery.dropdown.js"></script>
+  <h2>Choose from the following categories from top to bottom.</h2>
+
+  <h2>Choose One Question</h2>
+  <form action="{{ url_for('selectQuestion') }}" method=post class=selectQuestion>
+    <select multiple id="mymultiselect" name="mymultiselect">
+    <uiclass = questionChoices>
+	{% for item in questionChoices %}
+		<option value = {{item[0]}}>{{item[1]}}</option>
+	{% endfor %}
+    </select>
+    <input type="submit">
+  </form>
+
+  <h2>Choose Any Number of Answers</h2>
+  <form action="{{ url_for('selectAnswer') }}" method=post class=selectAnswer>
+    <select multiple id="mymultiselects" name="mymultiselects">
+    <uiclass = answerChoices>
+	{% for item in answerChoices %}
+		<option value = {{item[0]}}>{{item[1]}}</option>
+	{% endfor %}
+    </select>
+    <input type="submit">
+  </form>
+
+  <h2>Choose One Filter</h2>
+  <form action="{{ url_for('selectFilter') }}" method=post class=selectFilter>
+    <select multiple id="mymultiselectz" name="mymultiselectz">       
+        <uiclass = filterChoices>
+	{% for item in filterChoices %}
+		<option value = {{item[0]}}>{{item[1]}}</option>
+	{% endfor %}
+    </select>
+    <input type="submit">
+  </form>
+
+  <h2>Choose One Graph Type</h2>
+  <form action="{{ url_for('graphDisplay') }}" method=post class=graphDisplay>
+    <select multiple id = "mymultiselex" name = "mymultiselex">       
+        <uiclass = graphChoices>
+	{% for item in graphChoices %}
+		<option value = {{item[0]}}>{{item[1]}}</option>
+	{% endfor %}
+    </select>   
+    <input type="submit">    
+  </form>
+
+
+
+
+{% endblock %}

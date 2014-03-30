@@ -1,0 +1,14 @@
+﻿{% extends "layout.html" %}
+{% block body %}
+  <h2>Choose a Question</h2>
+  {% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+  <form action="{{ url_for('login') }}" method=post>
+  <div class="form-group" id='cg-{{comment_form.email.id}}'>
+   {{comment_form.email.label(class='col-lg-2 control-label',for=comment_form.email.id)}} 
+   <div class="col-lg-9"> 
+     {{comment_form.email(class='form-control')}} 
+     <span class="help-block" id='hl-{{comment_form.email.id}}'></span> 
+   </div> 
+  </div
+  </form>
+{% endblock %}

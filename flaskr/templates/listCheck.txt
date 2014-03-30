@@ -1,0 +1,11 @@
+﻿{% extends "layout.html" %}
+{% block body %}
+
+<h1> List Check Mi Amigo </h1>
+
+<u1class = myList>
+{% for item in myList $}
+   <li><h2> {{item}} </h2>
+{% endfor %}
+
+{% endblock %}

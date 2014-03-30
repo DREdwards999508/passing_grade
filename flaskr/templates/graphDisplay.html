@@ -1,0 +1,49 @@
+﻿{% extends "layout.html" %}
+{% block body %}
+
+<section>
+<div>
+<canvas id="canvas" width="500" height="500">
+This text is displayed if your browser does not support HTML5 Canvas.
+</canvas>
+</div>
+
+<script type="text/javascript">
+
+var myColor = ["#00D078","#D95B43","#C02942","#0000AA","#AA00AA", "#00AA00","#00AAAA"];
+var myData = [48, 66, 221, 124, 44, 449];
+    
+var myLabels = ["Yes, with congressional approval", "Yes, regardless of UN or congressional approval", "Yes, with UN authorization and congressional approval", "Yes, with UN authorization", "Don't know", "No"];
+
+
+
+function plotData() {
+var canvas;
+var ctx;
+var lastend = 0;
+var myTotal = 952;
+
+canvas = document.getElementById("canvas");
+ctx = canvas.getContext("2d");
+ctx.clearRect(0, 0, canvas.width, canvas.height);
+for (var i = 0; i < myData.length; i++) {
+ctx.fillStyle = myColor[i];
+ctx.beginPath();
+ctx.moveTo(200,170);
+ctx.arc(200,170,170,lastend,lastend+
+  (Math.PI*2*(myData[i]/myTotal)),false);
+ctx.font = "12px Arial";
+ctx.fillText(myLabels[i]+": "+myData[i]+" "+"%"+((myData[i]/myTotal)f)*100, 10,365+20*i);
+ctx.lineTo(200,170);
+ctx.fill();
+lastend += Math.PI*2*(myData[i]/myTotal);
+}
+}
+
+plotData();
+
+</script>
+</section> 
+ 
+<h4> {{jscript}} </h4>
+{% endblock %}
